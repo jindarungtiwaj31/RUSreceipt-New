@@ -1,143 +1,72 @@
-# ระบบออกใบเสร็จรับเงิน RMUT
+# RUSreceipt-New
 
-ชุดนี้เป็นเวอร์ชันพร้อมอัป GitHub Pages
+เว็บระบบออกใบเสร็จรับเงินสำหรับมหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ สร้างเป็นโปรเจกต์ใหม่โดยคงกระบวนการทำงานแบบ template เดิม: ใช้งานผ่าน GitHub Pages, ไฟล์หลัก `index.html`, ระบบ Admin/User, ฐานข้อมูลในเครื่อง และเตรียมต่อ Firebase Realtime Database สำหรับใช้งานหลายเครื่อง
 
-## เริ่มใช้งานเร็ว
+## URL เว็บ
 
-1. แตกไฟล์ ZIP
-2. อัปโหลดไฟล์ทั้งหมดขึ้น GitHub repository
-3. เปิด GitHub Pages จาก `Settings > Pages`
-4. เลือก `main` และ `/(root)`
-5. รอลิงก์เว็บจาก GitHub Pages
-
-ฐานข้อมูลกลางใช้ Firebase Realtime Database โปรดอ่าน `FIREBASE_SETUP.md`
-
----
-
-# ระบบออกใบเสร็จรับเงิน มทร.สุวรรณภูมิ
-
-## สถานะ Firebase ในแพ็กนี้
-
-แพ็กนี้ใส่ค่า Firebase config ของโปรเจกต์ `rmut-receipt-app` ให้แล้วในไฟล์ `firebase-config.js` และเปิด `enabled: true` แล้ว
-
-สิ่งที่ยังต้องตรวจใน Firebase Console ก่อนใช้งานหลายเครื่องจริง:
-
-1. เปิดใช้งาน Realtime Database แล้ว
-2. ตรวจว่า Database URL ตรงกับค่าใน `firebase-config.js`
-3. นำ rules จากไฟล์ `firebase.rules.json` ไปวางใน Realtime Database > Rules แล้วกด Publish
-
-ถ้าเปิดเว็บแล้วมุมบนขึ้นว่า `ฐานข้อมูลกลางเชื่อมต่อแล้ว` แปลว่าพร้อมใช้หลายเครื่องแล้ว
-
-
-แพ็กนี้เป็นเว็บแอป `HTML/CSS/JavaScript` สำหรับออกใบเสร็จรับเงิน พร้อมระบบหลังบ้าน Admin/User และรองรับฐานข้อมูลกลางผ่าน **Firebase Realtime Database** เพื่อให้ใช้งานหลายเครื่องร่วมกันได้
-
-## สถานะไฟล์นี้
-
-เวอร์ชันนี้ทำให้ครบขึ้นแล้ว:
-
-- ใช้งานผ่านไฟล์หลัก `index.html`
-- มีหน้า Login แยก Admin และ User
-- Admin เป็นผู้กำหนดรหัส User เองทั้งหมด รหัสต้องเป็นตัวเลข 4 หลัก
-- Admin เปิด/ปิด User ได้
-- Admin เปลี่ยน Username/Password ของ Admin ได้จากหน้า `ตั้งค่า Admin`
-- มีฐานข้อมูลกลางผ่าน Firebase Realtime Database สำหรับหลายเครื่อง
-- ถ้ายังไม่ได้ตั้ง Firebase ระบบจะใช้ Local DB ในเครื่องนี้ก่อน
-- มีปุ่มสำรอง/นำเข้าฐานข้อมูล JSON
-- ออกใบเสร็จต้นฉบับ/สำเนา
-- จัดการคำนำหน้า รายการชำระเงิน โครงการ ธนาคาร เล่มใบเสร็จ ใบเสร็จ และรายงาน
-- เลขใบเสร็จใช้ Firebase transaction เมื่อเปิดฐานข้อมูลกลาง เพื่อลดปัญหาเลขซ้ำจากหลายเครื่อง
-
-## ไฟล์ที่ต้องอัปโหลดขึ้น GitHub Pages
-
-อัปโหลดทุกไฟล์ในโฟลเดอร์นี้ขึ้น Repository:
-
-- `index.html`
-- `firebase-config.js`
-- `FIREBASE_SETUP.md`
-- `firebase.rules.json`
-- โฟลเดอร์ `assets`
-- `.nojekyll`
-
-
-
-## วิธีเผยแพร่ด้วย GitHub Pages 
-
-แพ็กนี้พร้อมสำหรับ GitHub Pages แล้ว ให้ดูขั้นตอนละเอียดในไฟล์ `GITHUB_PAGES_DEPLOY.md`
-
-สรุปสั้น ๆ:
-
-1. สร้าง GitHub repository ใหม่ เช่น `receipt-app`
-2. อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ โดยให้ `index.html` อยู่ชั้นบนสุด
-3. ไปที่ `Settings > Pages`
-4. Source เลือก `Deploy from a branch`
-5. Branch เลือก `main` และ Folder เลือก `/(root)`
-6. กด `Save`
-7. ใช้ลิงก์ประมาณ `https://USERNAME.github.io/receipt-app/`
-
-## วิธีเผยแพร่ให้ผู้อื่นเข้าใช้งาน
-
-แพ็กนี้เตรียมไฟล์สำหรับ Firebase Hosting ให้แล้ว ได้แก่ `firebase.json` และ `.firebaserc`
-
-วิธี deploy แบบสั้น:
-
-```bash
-npm install -g firebase-tools
-firebase login
-firebase use rmut-receipt-app
-firebase deploy
+```text
+https://jindarungtiwaj31.github.io/RUSreceipt-New/
 ```
 
-หลัง deploy สำเร็จ ให้ส่งลิงก์ `https://rmut-receipt-app.web.app` หรือ URL ที่ Firebase แสดงให้ผู้ใช้งาน
+## ไฟล์หลัก
 
-อ่านรายละเอียดในไฟล์ `DEPLOY.md`
+```text
+index.html
+style.css
+app.js
+firebase-config.js
+firebase.rules.json
+FIREBASE_SETUP.md
+GITHUB_PAGES_DEPLOY.md
+.nojekyll
+```
 
-## วิธีเผยแพร่ด้วย GitHub Pages
+## ฟีเจอร์ที่มีในเวอร์ชันนี้
 
-1. เข้า GitHub แล้วสร้าง Repository ใหม่ เช่น `receipt-app`
-2. อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ขึ้น Repository
-3. เข้าเมนู `Settings`
-4. เลือก `Pages`
-5. ที่ `Build and deployment` เลือก `Deploy from a branch`
-6. เลือก Branch เป็น `main`
-7. เลือก Folder เป็น `/root`
-8. กด `Save`
-9. รอ GitHub สร้างเว็บ แล้วเปิด URL ที่ GitHub Pages แสดงให้
+- หน้า Login แยก Admin และ User
+- Admin เริ่มต้น: `admin` / `admin123`
+- Admin สร้าง User ด้วยรหัสตัวเลข 4 หลัก
+- เปิด/ปิด User ได้
+- ตั้งค่าชื่อหน่วยงาน ชื่อระบบ ที่อยู่ และรหัส Admin ได้
+- จัดการข้อมูลหลังบ้าน: คำนำหน้า รายการชำระเงิน โครงการ และธนาคาร/วิธีชำระเงิน
+- จัดการเล่มใบเสร็จ Prefix เลขเริ่มต้น เลขสิ้นสุด และเลขถัดไป
+- ออกใบเสร็จและพิมพ์ต้นฉบับ
+- พิมพ์สำเนาจากหน้ารายงาน
+- ยกเลิกใบเสร็จจากหน้ารายงาน
+- Export รายงานเป็น CSV
+- สำรอง/นำเข้าฐานข้อมูล JSON
+- ใช้ Local DB ได้ทันที และเตรียมต่อ Firebase สำหรับฐานข้อมูลกลาง
 
-## บัญชีเริ่มต้น
+## วิธีใช้งานเร็ว
 
-- Admin username: `admin`
-- Admin password: `admin123`
+1. เปิด URL GitHub Pages
+2. Login ด้วย Admin: `admin` / `admin123`
+3. ไปที่ `ตั้งค่า Admin` แล้วเปลี่ยนรหัสผ่าน
+4. ไปที่ `ผู้ใช้งาน` เพื่อเพิ่ม User 4 หลัก
+5. ไปที่ `ข้อมูลหลังบ้าน` เพื่อเพิ่มรายการชำระเงิน/โครงการ/ธนาคาร
+6. ไปที่ `เล่มใบเสร็จ` เพื่อตั้งค่าเล่มและเลขใบเสร็จ
+7. ไปที่ `ออกใบเสร็จ` เพื่อบันทึกและพิมพ์
 
-หลังเข้าได้แล้ว แนะนำให้ไปที่แท็บ `ตั้งค่า Admin` แล้วเปลี่ยนรหัสผ่านทันที
+## ฐานข้อมูล
 
-## วิธีใช้งาน User 4 หลัก
+ค่าเริ่มต้นใช้ `localStorage` ใน browser เพื่อให้เว็บใช้งานได้ทันทีโดยไม่ต้องตั้งค่า server
 
-1. เข้า Admin
-2. ไปที่แท็บ `ผู้ใช้งาน`
-3. กรอกรหัส User เป็นตัวเลข 4 หลัก เช่น `1234`
-4. กรอกชื่อผู้ใช้งาน
-5. กด `เพิ่ม User`
-6. เครื่อง User ใช้รหัส 4 หลักนี้เพื่อเข้าสู่ระบบ
+ถ้าต้องใช้งานหลายเครื่องร่วมกัน ให้ตั้งค่า Firebase ในไฟล์ `firebase-config.js` แล้วนำ rules จาก `firebase.rules.json` ไปวางใน Firebase Console
 
-หมายเหตุ: ระบบไม่มี User ตัวอย่างติดมาแล้ว เพื่อให้ Admin เป็นผู้กำหนดเองทั้งหมด
+อ่านขั้นตอนใน `FIREBASE_SETUP.md`
 
-## ฐานข้อมูลกลางหลายเครื่อง
+## GitHub Pages
 
-ระบบนี้ใช้ไฟล์ `firebase-config.js` เพื่อเชื่อม Firebase Realtime Database
+โปรเจกต์นี้เป็น Static Web App ใช้งานได้บน GitHub Pages โดยให้ตั้งค่า:
 
-ถ้ายังไม่ได้ตั้งค่า Firebase ระบบจะแสดงสถานะ `Local DB` และข้อมูลจะอยู่เฉพาะเครื่องนั้น
+```text
+Settings > Pages
+Source: Deploy from a branch
+Branch: main
+Folder: /(root)
+```
 
-เมื่อตั้งค่า Firebase แล้ว ทุกเครื่องที่เปิด URL เดียวกันจะใช้ข้อมูลเดียวกัน เช่น User, เล่มใบเสร็จ, ใบเสร็จ, รายงาน และข้อมูลหลังบ้านทั้งหมด
-
-ดูวิธีตั้งค่าทีละขั้นตอนในไฟล์ `FIREBASE_SETUP.md`
-
-## วิธีสำรองข้อมูล
-
-เข้า Admin > `ฐานข้อมูลกลาง` แล้วใช้ปุ่ม:
-
-- `สำรองฐานข้อมูล JSON` เพื่อดาวน์โหลดข้อมูลทั้งหมด
-- `นำเข้า JSON` เพื่อกู้คืนข้อมูลจากไฟล์สำรอง
-- `ส่งข้อมูลเครื่องนี้ขึ้นฐานกลาง` เพื่อ push ข้อมูล local ไปที่ Firebase หลังตั้งค่า Firebase สำเร็จ
+อ่านขั้นตอนใน `GITHUB_PAGES_DEPLOY.md`
 
 ## หมายเหตุด้านความปลอดภัย
 
