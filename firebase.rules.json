@@ -1,8 +1,10 @@
 {
   "rules": {
     "receipt-app": {
-      ".read": true,
-      ".write": true
+      "RUSreceipt-New": {
+        ".read": true,
+        ".write": true
+      }
     },
     ".read": false,
     ".write": false
