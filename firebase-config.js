@@ -1,20 +1,23 @@
 // Firebase config สำหรับ RUSreceipt-New
-// ค่าเริ่มต้นปิด Firebase ไว้ก่อน เพื่อให้เว็บรันได้ทันทีด้วย Local DB
-// เมื่อต้องการใช้งานหลายเครื่อง ให้สร้าง Firebase Realtime Database แล้วนำ config มาใส่ด้านล่าง
+// Database URL ที่ใช้งาน:
+// https://rusreceipt-default-rtdb.asia-southeast1.firebasedatabase.app/
+//
+// หมายเหตุ: ตั้งค่าให้เปิด Firebase แล้ว โดยใช้ databaseURL ที่ให้มา
+// หากต้องการ config เต็ม ให้คัดลอกจาก Firebase Console > Project settings > Your apps > Web app มาแทนค่าเพิ่มเติมได้
 
 window.RECEIPT_APP_DATABASE_CONFIG = {
-  enabled: false,
+  enabled: true,
   provider: "firebase",
   appName: "RUSreceipt-New",
   firebaseSdkVersion: "10.12.5",
   path: "receipt-app/RUSreceipt-New",
   firebaseConfig: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
+    apiKey: "database-url-only",
+    authDomain: "rusreceipt.firebaseapp.com",
+    databaseURL: "https://rusreceipt-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    projectId: "rusreceipt",
+    storageBucket: "rusreceipt.firebasestorage.app",
     messagingSenderId: "",
-    appId: ""
+    appId: "database-url-only"
   }
 };
