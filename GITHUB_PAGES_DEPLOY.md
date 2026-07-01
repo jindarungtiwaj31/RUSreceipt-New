@@ -1,53 +1,55 @@
-# วิธีเผยแพร่ด้วย GitHub Pages
+# วิธีเผยแพร่ RUSreceipt-New ด้วย GitHub Pages
 
-## ไฟล์ชุดนี้พร้อมอัป GitHub Pages แล้ว
+โปรเจกต์นี้เป็น Static Web App จึงเผยแพร่บน GitHub Pages ได้โดยไม่ต้องมี server
 
-ให้แตก ZIP ก่อน แล้วอัปโหลดไฟล์/โฟลเดอร์ทั้งหมดขึ้น GitHub repository โดยให้ `index.html` อยู่ชั้นบนสุดของ repository
+## โครงสร้างไฟล์ที่ต้องอยู่ชั้นบนสุดของ repo
 
-โครงสร้างที่ถูกต้อง:
-
-```txt
+```text
 index.html
+style.css
+app.js
 firebase-config.js
 firebase.rules.json
 README.md
 FIREBASE_SETUP.md
 GITHUB_PAGES_DEPLOY.md
 .nojekyll
-assets/
-  university-logo.png
 ```
 
-> หมายเหตุ: โลโก้มุมซ้ายบนถูกฝังไว้ใน `index.html` แล้ว ต่อให้ path รูปมีปัญหา โลโก้ก็ยังแสดงได้
+## ตั้งค่า GitHub Pages
 
-## ขั้นตอนตั้งค่า GitHub Pages
+1. เข้า repository `jindarungtiwaj31/RUSreceipt-New`
+2. ไปที่ `Settings`
+3. เลือกเมนู `Pages`
+4. ที่หัวข้อ `Build and deployment` เลือก `Deploy from a branch`
+5. เลือก Branch: `main`
+6. เลือก Folder: `/(root)`
+7. กด `Save`
+8. รอ GitHub สร้างเว็บประมาณครู่หนึ่ง
 
-1. สร้าง repository ใหม่ เช่น `receipt-app`
-2. แตกไฟล์ ZIP นี้
-3. อัปโหลดไฟล์ทั้งหมดเข้า repository ห้ามอัปโหลด ZIP ทั้งก้อน
-4. ไปที่ `Settings` > `Pages`
-5. เลือก:
-   - Source: `Deploy from a branch`
-   - Branch: `main`
-   - Folder: `/(root)`
-6. กด `Save`
-7. รอประมาณ 1-10 นาที
+## URL เว็บ
 
-ลิงก์เว็บจะเป็นรูปแบบ:
-
-```txt
-https://USERNAME.github.io/receipt-app/
+```text
+https://jindarungtiwaj31.github.io/RUSreceipt-New/
 ```
 
-## ก่อนใช้งานหลายเครื่องจริง
+## หลังอัปเดตไฟล์
 
-ต้องตั้งค่า Firebase Realtime Database ให้เรียบร้อยก่อน:
+เมื่อแก้ไฟล์และ commit เข้า branch `main` แล้ว GitHub Pages จะ deploy ใหม่อัตโนมัติ อาจต้องรอสักครู่และ refresh หน้าเว็บ
 
-1. เปิด Firebase Console
-2. เข้าโปรเจกต์ `rmut-receipt-app`
-3. เปิด `Realtime Database`
-4. ไปที่ `Rules`
-5. นำเนื้อหาในไฟล์ `firebase.rules.json` ไปวาง
-6. กด `Publish`
+## ทดสอบหลัง deploy
 
-ถ้าไม่เปิด Realtime Database ระบบอาจยังทำงานแบบ Local DB ในเครื่องเดียว
+1. เปิด URL เว็บ
+2. Login ด้วย `admin` / `admin123`
+3. ตรวจว่าเข้าหน้า Dashboard ได้
+4. ทดลองเพิ่ม User 4 หลัก
+5. ทดลองออกใบเสร็จ 1 รายการ
+6. ทดลองพิมพ์ต้นฉบับ/สำเนา
+7. ทดลองสำรองฐานข้อมูล JSON
+
+## ปัญหาที่พบบ่อย
+
+- เปิดเว็บแล้วขึ้นหน้าเปล่า: ตรวจว่า `index.html` อยู่ชั้นบนสุดของ repo
+- CSS/JS ไม่โหลด: ตรวจชื่อไฟล์ `style.css` และ `app.js`
+- ข้อมูลไม่ข้ามเครื่อง: ต้องตั้งค่า Firebase ใน `firebase-config.js`
+- ยังเห็นหน้าเก่า: กด hard refresh หรือรอ GitHub Pages deploy ใหม่
